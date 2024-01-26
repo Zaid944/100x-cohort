@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="getData()">Get Data</button>
+    <script>
+      function getData() {
+        // alert("yay");
+        const res = fetch("https://fakerapi.it/api/v1/persons");
+        // console.log(res);
+        res.then((data) => {
+          const json = data.json();
+          json.then((data) => {
+            console.log(data);
+          });
+        });
+      }
+      async function getData() {
+        // alert("yay");
+        const res = await fetch("https://fakerapi.it/api/v1/persons");
+        const finalData = await res.json();
+        console.log(finalData);
+      }
+    </script>
+  </body>
+</html>
+
+<!-- hash -> string -> diff -->
+<!-- encryption -> decryption -->
+<!-- hashing -> 1 way encryption -> 2way -->
+<!-- json web tokens -->
+<!-- 
+    {
+        "name",
+        "id",
+        "signature"
+    }
+    takes in json data
+    jwt not protected or hashed
+    
+ -->
