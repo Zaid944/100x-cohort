@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      oninput="debounceDiv()"
+      id="num1"
+      type="text"
+      placeholder="first-number"
+    /><br />
+    <br />
+    <input
+      oninput="debounceDiv()"
+      id="num2"
+      type="text"
+      placeholder="second-number"
+    /><br />
+    <br />
+    <!-- <button onclick="calculateSum()">Calculate Sum</button> -->
+    <div id="final-sum"></div>
+    <script>
+      let num1 = document.getElementById("num1");
+      let num2 = document.getElementById("num2");
+      let sumDiv = document.getElementById("final-sum");
+      let timeout;
+      function debounceDiv() {
+        // delay the call to calculateSum
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          calculateSum();
+        }, 1000);
+      }
+      async function calculateSum() {
+        //throttling, debouncing
+
+        // let sum = parseInt(num1.value) + parseInt(num2.value);
+        // sumDiv.innerText = "Sum is : " + sum;
+        const data = await fetch(
+          "https://sum-server.100xdevs.com/sum?a=" +
+            num1.value +
+            "&b=" +
+            num2.value
+        );
+        const final = await data.text();
+        console.log(final);
+        sumDiv.innerHTML = final;
+      }
+    </script>
+  </body>
+</html>
