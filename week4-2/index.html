@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <script>
+      let title = document.getElementById("title").value;
+      let description = document.getElementById("description").value;
+      let parent = document.getElementById("container")
+      parent.appendChild(createChild());
+      
+    </script>
+    <input id="title" type="text" />
+    <br />
+    <input id="description" type="text" />
+    <br />
+    <button>Add Todo</button>
+    <div id="container"></div>
+  </body>
+</html>

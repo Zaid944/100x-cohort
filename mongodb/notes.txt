@@ -1,0 +1,15 @@
+database is 0/1
+either access complete db or none
+so we require express/server
+
+firebase -> no server required direct interact 
+with db
+
+const UserSchema = new mongoose.Schema({
+    email : String,
+    password : String,
+    purchasedCourses : [{
+        type : ObjectId,
+        ref : Course
+    }]
+})
