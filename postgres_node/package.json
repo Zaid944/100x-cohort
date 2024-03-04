@@ -10,8 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^20.11.24",
     "@types/pg": "^8.11.2",
-    "pg": "^8.11.3"
+    "pg": "^8.11.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "type": "module"
 }
